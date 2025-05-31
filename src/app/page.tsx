@@ -4,27 +4,32 @@ import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { File } from "lucide-react";
 import Link from "next/link";
+import GitHubCalendar from "react-github-calendar";
 import { BiLogoPostgresql } from "react-icons/bi";
-import { FaGit, FaReact } from "react-icons/fa";
+import { FaGit, FaGithub, FaLinkedin, FaLinux, FaReact } from "react-icons/fa";
+import { IoMdMail } from "react-icons/io";
 import { RiTailwindCssFill, RiVerifiedBadgeFill } from "react-icons/ri";
-import { SiNextdotjs, SiTypescript } from "react-icons/si";
+import { SiNextdotjs, SiPrisma, SiTypescript } from "react-icons/si";
 
 export default function Home() {
   return (
-    <div className="min-h-screen flex flex-col gap-16 p-8">
+    <div className="min-h-screen flex flex-col gap-16 p-8 w-full">
       <div className=" flex flex-col w-full gap-4">
         <div className="flex justify-between items-center flex-wrap gap-4">
           <div className="flex flex-col ">
-            <h1 className=" font-bold text-2xl tracking-tighter flex items-center gap-2">
+            <h1 className=" font-bold text-2xl tracking-tighter flex items-center gap-2 ">
               danodoms
               <RiVerifiedBadgeFill className="size-4" />
             </h1>
-            <p className="opacity-70">Full-Stack Web Developer</p>
+            <p className="opacity-50">Full-Stack Web Developer</p>
           </div>
-          <Avatar className="size-12 ">
-            <AvatarImage src="https://avatars.githubusercontent.com/u/165539900?v=4" />
-            <AvatarFallback>CN</AvatarFallback>
-          </Avatar>
+
+          <div className="flex items-center gap-4">
+            <Avatar className="size-12 ">
+              <AvatarImage src="https://avatars.githubusercontent.com/u/165539900?v=4" />
+              <AvatarFallback>CN</AvatarFallback>
+            </Avatar>
+          </div>
         </div>
 
         <Separator />
@@ -34,18 +39,44 @@ export default function Home() {
         <h2 className="font-bold">About</h2>
         <div className="flex flex-col gap-2 text-pretty">
           <p>
-            Hello! I'm Dominador Dano Jr., a developer passionate about building
-            thoughtful, user-focused tools for the web and beyond. I specialize
-            in React and Next.js, with a strong eye for detail and clean design.
+            Hello! I'm <strong>Dominador Dano Jr.</strong>, a developer
+            passionate about building user-focused tools for the web and beyond,
+            specializing in <strong>React</strong> and <strong>Next.js</strong>.
           </p>
 
           <p>
-            I started out as a freelance designer and music producer before
-            moving into development. That creative background still shapes the
-            way I approach my work—balancing usability, visual clarity, and
-            technical precision. Whether it's writing clean code or shipping
-            thoughtful products, I aim to build things that are purposeful and
-            accessible.
+            I started out as a freelance graphic designer and music producer
+            before moving into development. That{" "}
+            <strong>creative background</strong> still shapes the way I approach
+            my work, balancing usability, visual clarity, and technical
+            precision.
+          </p>
+        </div>
+
+        <div className="flex gap-4 flex-wrap">
+          {/* <ModeToggle /> */}
+
+          <Link
+            href="https://github.com/danodoms"
+            className="text-sm flex gap-1 opacity-50 items-center "
+            target="_blank"
+          >
+            <FaGithub className="size-4" />
+            GitHub
+          </Link>
+
+          <Link
+            href="https://linkedin.com/in/danodoms"
+            className="text-sm flex gap-1 opacity-50 items-center"
+            target="_blank"
+          >
+            <FaLinkedin className="size-4" />
+            LinkedIn
+          </Link>
+
+          <p className="text-sm flex gap-1 opacity-50 items-center">
+            <IoMdMail className="size-4" />
+            danodoms@gmail.com
           </p>
         </div>
       </div>
@@ -86,26 +117,31 @@ export default function Home() {
           <ProjectCard
             title="Biometric Attendance"
             description="Fingerprint based attendance system with DTR generation"
-            images={["/images/bio-attendance/bio-attendance-1.webp"]}
-            impacts={["On-device AI processing", "Realtime image analysis"]}
+            images={["/images/bio-attendance/bio-attendance-2.webp"]}
+            impacts={[
+              "Secure, tamper-proof identity tracking",
+              "Automated DTR generation",
+            ]}
             liveLink="https://github.com/danodoms/fingerprint-attendance"
           />
         </div>
       </div>
 
       <div className="flex flex-col gap-4">
-        <h2 className="font-bold">Technologies</h2>
-        <div className="flex flex-wrap gap-4">
+        <h2 className="font-bold mb-2">Technologies</h2>
+        <div className="flex flex-wrap gap-8 text-4xl">
           <FaReact />
           <SiNextdotjs />
           <RiTailwindCssFill />
           <FaGit />
           <SiTypescript />
           <BiLogoPostgresql />
+          <SiPrisma />
+          <FaLinux />
         </div>
       </div>
 
-      <Link href="/dominador-dano-jr-resume.pdf">
+      <Link href="/dominador-dano-jr-resume.pdf" target="_blank">
         <Button
           className="flex items-center cursor-pointer"
           variant="secondary"
@@ -115,9 +151,11 @@ export default function Home() {
         </Button>
       </Link>
 
+      <GitHubCalendar username="danodoms" />
+
       <Separator />
 
-      <p className="text-sm tracking-tight opacity-70 text-center mb-4">
+      <p className="text-sm tracking-tight opacity-50 text-center mb-4">
         © 2025. All rights reserved.
       </p>
     </div>
