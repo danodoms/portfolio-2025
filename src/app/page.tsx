@@ -39,16 +39,16 @@ export default function Home() {
         <h2 className="font-bold">About</h2>
         <div className="flex flex-col gap-2 text-pretty">
           <p>
-            Hello! I'm <strong>Dominador Dano Jr.</strong>, a developer
+            Hello! I&apos;m <strong>Dominador Dano Jr.</strong>, a developer
             passionate about building user-focused tools for the web and beyond,
             specializing in <strong>React</strong> and <strong>Next.js</strong>.
           </p>
 
           <p>
             I started out as a freelance graphic designer and music producer
-            before moving into development. That{" "}
-            <strong>creative background</strong> still shapes the way I approach
-            my work, balancing usability, visual clarity, and technical
+            before moving into development. That
+            <strong> creative background</strong> still shapes the way I
+            approach my work, balancing usability, visual clarity, and technical
             precision.
           </p>
         </div>
@@ -104,6 +104,7 @@ export default function Home() {
               "Attendance logging sped up by 5x",
             ]}
             liveLink="https://eventoportal.netlify.app"
+            repoLink="https://github.com/danodoms/evento"
           />
 
           <ProjectCard
@@ -112,6 +113,7 @@ export default function Home() {
             images={["/images/evento/evento-3.webp"]}
             impacts={["On-device AI processing", "Realtime image analysis"]}
             liveLink="https://github.com/danodoms/XR-Vision"
+            repoLink="https://github.com/danodoms/xr-vision"
           />
 
           <ProjectCard
@@ -123,6 +125,7 @@ export default function Home() {
               "Automated DTR generation",
             ]}
             liveLink="https://github.com/danodoms/fingerprint-attendance"
+            repoLink="https://github.com/danodoms/fingerprint-attendance"
           />
         </div>
       </div>

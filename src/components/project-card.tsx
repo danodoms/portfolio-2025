@@ -1,4 +1,4 @@
-import { ArrowUpRight, Check } from "lucide-react";
+import { ArrowUpRight, Check, CodeXml } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -33,15 +33,27 @@ export default function ProjectCard({
       </div>
 
       <div className="flex flex-col mt-2">
-        <Link
-          className="font-bold tracking-tighter text-xl flex gap-1 items-center"
-          href={liveLink ?? ""}
-          target="_blank"
-        >
-          <h2>{title}</h2>
+        <div className="flex justify-between">
+          <Link
+            className="font-bold tracking-tighter text-xl flex gap-1 items-center"
+            href={liveLink ?? ""}
+            target="_blank"
+          >
+            <h2>{title}</h2>
 
-          {liveLink && <ArrowUpRight className="size-4" />}
-        </Link>
+            {liveLink && <ArrowUpRight className="size-4" />}
+          </Link>
+
+          {repoLink && (
+            <Link
+              className="flex gap-1 items-center opacity-50 text-sm tracking-tight hover:underline"
+              href={repoLink}
+              target="_blank"
+            >
+              <CodeXml className="size-4" />
+            </Link>
+          )}
+        </div>
 
         {description && (
           <p className="text-sm tracking-tight opacity-50 text-balance mt-2">
