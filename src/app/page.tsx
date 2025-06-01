@@ -1,3 +1,5 @@
+"use client";
+
 import ProjectCard from "@/components/project-card";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
@@ -7,13 +9,58 @@ import Link from "next/link";
 import GitHubCalendar from "react-github-calendar";
 import { BiLogoPostgresql } from "react-icons/bi";
 import { FaGit, FaGithub, FaLinkedin, FaLinux, FaReact } from "react-icons/fa";
+import { FaCat } from "react-icons/fa6";
 import { IoMdMail } from "react-icons/io";
 import { RiTailwindCssFill, RiVerifiedBadgeFill } from "react-icons/ri";
 import { SiNextdotjs, SiPrisma, SiTypescript } from "react-icons/si";
+import { toast } from "sonner";
 
 export default function Home() {
+  const handleMeow = () => {
+    const catMessages = [
+      // 😼 Sassy & Judgy
+      "Meow. You again?",
+      "Mrow. That’s not my problem.",
+      "Mewp. I *saw* what you did.",
+      "Mrrrow! My standards are higher than this.",
+      "Mee-yow! You call that effort?",
+      "Hiss! Fix your mistakes.",
+      "Prrt. You may proceed... for now.",
+      "Mew. Try harder, hooman.",
+
+      // 🥺 Cute & Needy
+      "Mew~ Feed me, please.",
+      "Prrrrr... I like you.",
+      "Mrow~ Hold me.",
+      "Mewww... pet me, now.",
+      "Meeeeeow! I'm so smol and hungry.",
+      "Miiiiaao~ I require attention.",
+      "Mewp! That scared me!",
+
+      // 😈 Chaotic & Wild
+      "HISSS! Just kidding 😸",
+      "Yowl! I'm feral and fabulous.",
+      "Mrrrreeeow! The zoomies have begun!",
+      "Mrawr! I knocked over your stuff.",
+      "Mowww! There is no escape.",
+      "Meow. I pressed a button. Chaos.",
+      "Chirp! The hunt begins!",
+
+      // 👑 Royal & Dramatic
+      "M'row! I am your ruler.",
+      "Meow. Bring me offerings.",
+      "Prrrrt! Bow before me.",
+      "Mee-yow~ I accept your presence.",
+      "Mao. I will allow it.",
+      "Meow. You may gaze upon me.",
+    ];
+    const randomWord =
+      catMessages[Math.floor(Math.random() * catMessages.length)];
+    toast.success(randomWord);
+  };
+
   return (
-    <div className="min-h-screen flex flex-col gap-16 p-8 w-full">
+    <div className="min-h-screen flex flex-col gap-16 p-8 w-full font-sans">
       <div className=" flex flex-col w-full gap-4">
         <div className="flex justify-between items-center flex-wrap gap-4">
           <div className="flex flex-col ">
@@ -21,7 +68,7 @@ export default function Home() {
               danodoms
               <RiVerifiedBadgeFill className="size-4" />
             </h1>
-            <p className="opacity-50">Full-Stack Web Developer</p>
+            <p className="opacity-50 font-mono">Web Developer</p>
           </div>
 
           <div className="flex items-center gap-4">
@@ -41,8 +88,11 @@ export default function Home() {
       </div>
 
       <div className="flex flex-col gap-4">
-        <h2 className="font-bold">About</h2>
-        <div className="flex flex-col gap-2 text-pretty">
+        <div className="flex justify-between">
+          <h2 className="opacity-50 text-sm">About</h2>
+        </div>
+
+        <div className="flex flex-col gap-4 text-pretty font-mono">
           <p>
             Hello! I&apos;m <strong>Dominador Dano Jr.</strong>, a developer
             passionate about building user-focused tools for the web and beyond,
@@ -83,11 +133,19 @@ export default function Home() {
             <IoMdMail className="size-4" />
             danodoms@gmail.com
           </p>
+
+          <div
+            className="flex gap-2  items-center cursor-pointer hover:opacity-100 opacity-50 ml-auto"
+            onClick={handleMeow}
+          >
+            <p className="text-sm underline font-mono">say meow</p>
+            <FaCat className="animate-bounce" />
+          </div>
         </div>
       </div>
 
       <div className="flex flex-col gap-4">
-        <h2 className="font-bold">Projects</h2>
+        <h2 className="opacity-50 text-sm">Projects</h2>
         <div className="flex flex-col gap-8 md:grid-cols-2 md:grid">
           <ProjectCard
             title="Dekada"
@@ -136,7 +194,7 @@ export default function Home() {
       </div>
 
       <div className="flex flex-col gap-4">
-        <h2 className="font-bold mb-2">Technologies</h2>
+        <h2 className="opacity-50 mb-2 text-sm">Technologies</h2>
         <div className="flex flex-wrap gap-8 text-4xl">
           <FaReact />
           <SiNextdotjs />
@@ -163,7 +221,7 @@ export default function Home() {
 
       <Separator />
 
-      <p className="text-sm tracking-tight opacity-50 text-center mb-4">
+      <p className="text-sm tracking-tight opacity-50 text-center mb-4 font-mono">
         © 2025. All rights reserved.
       </p>
     </div>

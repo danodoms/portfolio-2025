@@ -25,25 +25,25 @@ export default function ProjectCard({
   const [imageLoading, setImageLoading] = useState(true);
 
   return (
-    <div className="flex flex-col gap-2 rounded-xl transition-all">
-      <div className="relative aspect-video w-full rounded-xl">
+    <div className="flex flex-col gap-2 rounded-none transition-all border font-sans">
+      <div className="relative aspect-video w-full rounded-none border-b">
         <Link href={liveLink ?? ""} target="_blank">
           <div className="w-full h-full absolute inset-0">
             {imageLoading && (
-              <div className="absolute inset-0 bg-gray-200 rounded-xl animate-pulse" />
+              <div className="absolute inset-0 bg-gray-200 rounded-none animate-pulse" />
             )}
             <Image
               src={images[0]}
               alt="Project Image"
               fill
               onLoad={() => setImageLoading(false)}
-              className={`object-cover rounded-xl hover:opacity-75 transition-all ${imageLoading ? "bg-muted" : ""}`}
+              className={`object-cover rounded-none hover:opacity-75 transition-all ${imageLoading ? "bg-muted" : ""}`}
             />
           </div>
         </Link>
       </div>
 
-      <div className="flex flex-col mt-2">
+      <div className="flex flex-col p-4">
         <div className="flex justify-between">
           <Link
             className="font-bold tracking-tighter text-xl flex gap-1 items-center"
