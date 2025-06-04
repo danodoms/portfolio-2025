@@ -1,11 +1,18 @@
 "use client";
 
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+} from "@/components/ui/carousel";
+import Autoplay from "embla-carousel-autoplay";
+import Fade from "embla-carousel-fade";
 import { ArrowUpRight, Check, CodeXml } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 
-type ProjectCardProps = {
+export type ProjectCardProps = {
   title: string;
   description?: string;
   images: string[];
@@ -26,22 +33,41 @@ export default function ProjectCard({
 
   return (
     <div className="flex flex-col gap-2 rounded-none transition-all border font-sans">
-      <div className="relative aspect-video w-full rounded-none border-b">
-        <Link href={liveLink ?? ""} target="_blank">
-          <div className="w-full h-full absolute inset-0">
-            {imageLoading && (
-              <div className="absolute inset-0 bg-gray-200 rounded-none animate-pulse" />
-            )}
-            <Image
-              src={images[0]}
-              alt="Project Image"
-              fill
-              onLoad={() => setImageLoading(false)}
-              className={`object-cover rounded-none hover:opacity-75 transition-all ${imageLoading ? "bg-muted" : ""}`}
-            />
-          </div>
-        </Link>
-      </div>
+      <Carousel
+        plugins={[
+          Autoplay({
+            delay: 5000,
+            // jump: true,
+          }),
+          Fade(),
+        ]}
+      >
+        <CarouselContent>
+          {images.map((image, index) => (
+            <CarouselItem key={index}>
+              <div className="relative aspect-video w-full rounded-none border-b">
+                <Link href={liveLink ?? ""} target="_blank">
+                  <div className="w-full h-full absolute inset-0">
+                    {imageLoading && (
+                      <div className="absolute inset-0 bg-gray-200 rounded-none animate-pulse" />
+                    )}
+                    <Image
+                      src={image}
+                      alt="Project Image"
+                      fill
+                      loading="eager"
+                      onLoad={() => setImageLoading(false)}
+                      className={`object-cover rounded-none hover:opacity-75 transition-all ${imageLoading ? "bg-muted" : ""}`}
+                    />
+                  </div>
+                </Link>
+              </div>
+            </CarouselItem>
+          ))}
+        </CarouselContent>
+        {/* <CarouselPrevious />
+        <CarouselNext /> */}
+      </Carousel>
 
       <div className="flex flex-col p-4">
         <div className="flex justify-between">

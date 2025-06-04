@@ -4,6 +4,7 @@ import ProjectCard from "@/components/project-card";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
+import { catMessages, projects } from "@/lib/data";
 import { File } from "lucide-react";
 import Link from "next/link";
 import GitHubCalendar from "react-github-calendar";
@@ -17,43 +18,6 @@ import { toast } from "sonner";
 
 export default function Home() {
   const handleMeow = () => {
-    const catMessages = [
-      // 😼 Sassy & Judgy
-      "Meow. You again?",
-      "Mrow. That’s not my problem.",
-      "Mewp. I *saw* what you did.",
-      "Mrrrow! My standards are higher than this.",
-      "Mee-yow! You call that effort?",
-      "Hiss! Fix your mistakes.",
-      "Prrt. You may proceed... for now.",
-      "Mew. Try harder, hooman.",
-
-      // 🥺 Cute & Needy
-      "Mew~ Feed me, please.",
-      "Prrrrr... I like you.",
-      "Mrow~ Hold me.",
-      "Mewww... pet me, now.",
-      "Meeeeeow! I'm so smol and hungry.",
-      "Miiiiaao~ I require attention.",
-      "Mewp! That scared me!",
-
-      // 😈 Chaotic & Wild
-      "HISSS! Just kidding 😸",
-      "Yowl! I'm feral and fabulous.",
-      "Mrrrreeeow! The zoomies have begun!",
-      "Mrawr! I knocked over your stuff.",
-      "Mowww! There is no escape.",
-      "Meow. I pressed a button. Chaos.",
-      "Chirp! The hunt begins!",
-
-      // 👑 Royal & Dramatic
-      "M'row! I am your ruler.",
-      "Meow. Bring me offerings.",
-      "Prrrrt! Bow before me.",
-      "Mee-yow~ I accept your presence.",
-      "Mao. I will allow it.",
-      "Meow. You may gaze upon me.",
-    ];
     const randomWord =
       catMessages[Math.floor(Math.random() * catMessages.length)];
     toast.success(randomWord);
@@ -147,49 +111,9 @@ export default function Home() {
       <div className="flex flex-col gap-4">
         <h2 className="opacity-50 text-sm">Projects</h2>
         <div className="flex flex-col gap-8 md:grid-cols-2 md:grid">
-          <ProjectCard
-            title="Dekada"
-            description="Digital research repository"
-            images={["/images/dekada/dekada-1.webp"]}
-            impacts={[
-              "Store 200+ undergraduate research",
-              "Improved knowledge sharing",
-            ]}
-            liveLink="https://dekada.onrender.com/"
-          />
-
-          <ProjectCard
-            title="evento"
-            description="QR Code based events attendance"
-            images={["/images/evento/evento-1.webp"]}
-            impacts={[
-              "Successfully serves 1,000+ users",
-              "Attendance logging sped up by 5x",
-            ]}
-            liveLink="https://eventoportal.netlify.app"
-            repoLink="https://github.com/danodoms/evento"
-          />
-
-          <ProjectCard
-            title="XR Vision"
-            description="AI-Powered Rice Leaf NPK Deficiency Detector Mobile App"
-            images={["/images/evento/evento-3.webp"]}
-            impacts={["On-device AI processing", "Realtime image analysis"]}
-            liveLink="https://github.com/danodoms/XR-Vision"
-            repoLink="https://github.com/danodoms/xr-vision"
-          />
-
-          <ProjectCard
-            title="Biometric Attendance"
-            description="Fingerprint based attendance system with DTR generation"
-            images={["/images/bio-attendance/bio-attendance-2.webp"]}
-            impacts={[
-              "Secure, tamper-proof identity tracking",
-              "Automated DTR generation",
-            ]}
-            liveLink="https://github.com/danodoms/fingerprint-attendance"
-            repoLink="https://github.com/danodoms/fingerprint-attendance"
-          />
+          {projects.map((project) => (
+            <ProjectCard key={project.title} {...project} />
+          ))}
         </div>
       </div>
 
