@@ -43,7 +43,7 @@ export const projects: ProjectCardProps[] = [
       "/images/xr-vision/xr-vision-3.webp",
     ],
     impacts: ["On-device AI processing", "Realtime image analysis"],
-    liveLink: "https://github.com/danodoms/XR-Vision",
+    // liveLink: "https://github.com/danodoms/XR-Vision",
     repoLink: "https://github.com/danodoms/xr-vision",
   },
   {
@@ -70,7 +70,7 @@ export const projects: ProjectCardProps[] = [
       "Secure, tamper-proof identity tracking",
       "Automated DTR generation",
     ],
-    liveLink: "https://github.com/danodoms/fingerprint-attendance",
+    // liveLink: "https://github.com/danodoms/fingerprint-attendance",
     repoLink: "https://github.com/danodoms/fingerprint-attendance",
   },
 ];
