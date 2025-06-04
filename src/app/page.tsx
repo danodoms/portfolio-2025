@@ -37,12 +37,16 @@ export default function Home() {
 
           <div className="flex items-center gap-4">
             <Avatar className="size-12 ">
+              <AvatarImage src="/images/profile.webp" />
               {/* <AvatarImage src="https://avatars.githubusercontent.com/u/165539900?v=4" /> */}
-              <AvatarImage
+              {/* <AvatarImage
                 src={
                   "https://media.licdn.com/dms/image/v2/D4D03AQHfGvxds-LWHw/profile-displayphoto-shrink_400_400/B4DZbY6B33GYAk-/0/1747395814260?e=1753920000&v=beta&t=Q8noDqhQfExG-3uUjMq5h8cAwC-qsx2z7n9z6-bipWM"
                 }
-              />
+              /> */}
+
+              {/* <AvatarImage src="  https://lh3.googleusercontent.com/a/ACg8ocJ-oVjwN35DVHfLa4kLzu9dhSDwjkTwo2R3yI6fK4guYJm_099R=s540-c-no" /> */}
+
               <AvatarFallback>D</AvatarFallback>
             </Avatar>
           </div>

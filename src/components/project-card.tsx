@@ -7,7 +7,7 @@ import {
 } from "@/components/ui/carousel";
 import Autoplay from "embla-carousel-autoplay";
 import Fade from "embla-carousel-fade";
-import { ArrowUpRight, Check, CodeXml } from "lucide-react";
+import { ArrowUpRight, Circle, CodeXml, Loader2 } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
@@ -31,12 +31,34 @@ export default function ProjectCard({
 }: ProjectCardProps) {
   const [imageLoading, setImageLoading] = useState(true);
 
+  const gradients = [
+    "from-blue-500 to-yellow-500",
+    "from-pink-500 to-indigo-500",
+    "from-red-500 to-cyan-500",
+    "from-purple-500 to-orange-500",
+    "from-emerald-500 to-fuchsia-500",
+    "from-amber-500 to-violet-500",
+    "from-teal-500 to-rose-500",
+    "from-green-500 to-pink-500",
+    "from-lime-500 to-purple-500",
+    "from-cyan-500 to-red-500",
+    "from-sky-500 to-amber-500",
+    "from-orange-500 to-indigo-500",
+    "from-rose-500 to-blue-500",
+    "from-violet-500 to-yellow-500",
+    "from-indigo-500 to-lime-500",
+    "from-fuchsia-500 to-teal-500",
+    "from-slate-500 to-orange-500",
+    "from-zinc-500 to-emerald-500",
+  ];
+
+  const gradient = gradients[Math.floor(Math.random() * gradients.length)];
   return (
-    <div className="flex flex-col gap-2 rounded-none transition-all border font-sans">
+    <div className="flex flex-col rounded-none transition-all border font-sans bg-muted/50">
       <Carousel
         plugins={[
           Autoplay({
-            delay: 5000,
+            delay: 3000,
             // jump: true,
           }),
           Fade(),
@@ -49,15 +71,23 @@ export default function ProjectCard({
                 <Link href={liveLink ?? ""} target="_blank">
                   <div className="w-full h-full absolute inset-0">
                     {imageLoading && (
-                      <div className="absolute inset-0 bg-gray-200 rounded-none animate-pulse" />
+                      <div
+                        className={`absolute inset-0 bg-gradient-to-br ${gradient} rounded-none animate-pulse flex items-center m-auto`}
+                      >
+                        {/* <h2 className="w-full font-bold text-center tracking-tight opacity-50 text-2xl">
+                          {title}
+                        </h2> */}
+                        <Loader2 className="animate-spin size-16 opacity-50 text-center w-full" />
+                      </div>
                     )}
                     <Image
                       src={image}
                       alt="Project Image"
                       fill
-                      loading="eager"
+                      loading="lazy"
                       onLoad={() => setImageLoading(false)}
-                      className={`object-cover rounded-none hover:opacity-75 transition-all ${imageLoading ? "bg-muted" : ""}`}
+                      // className={`object-cover rounded-none hover:opacity-75 transition-all ${imageLoading ? "bg-muted" : ""}`}
+                      className={`object-cover rounded-none hover:opacity-75 transition-all `}
                     />
                   </div>
                 </Link>
@@ -72,7 +102,7 @@ export default function ProjectCard({
       <div className="flex flex-col p-4">
         <div className="flex justify-between">
           <Link
-            className="font-bold tracking-tighter text-xl flex gap-1 items-center"
+            className="font-bold tracking-tighter flex gap-1 items-center"
             href={liveLink ?? ""}
             target="_blank"
           >
@@ -104,7 +134,7 @@ export default function ProjectCard({
               key={index}
               className="flex gap-2 items-center opacity-50 text-sm"
             >
-              <Check className="size-4" />
+              <Circle className="size-2" />
               {impact}
             </p>
           ))}
