@@ -7,7 +7,7 @@ import {
 } from "@/components/ui/carousel";
 import Autoplay from "embla-carousel-autoplay";
 import Fade from "embla-carousel-fade";
-import { ArrowUpRight, Circle, CodeXml, Loader2 } from "lucide-react";
+import { ArrowUpRight, CodeXml, Loader2, Sparkle } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
@@ -59,7 +59,10 @@ export default function ProjectCard({
         plugins={[
           Autoplay({
             delay: 3000,
-            // jump: true,
+            stopOnFocusIn: false,
+            stopOnInteraction: false,
+            stopOnLastSnap: false,
+            stopOnMouseEnter: false,
           }),
           Fade(),
         ]}
@@ -130,11 +133,8 @@ export default function ProjectCard({
 
         <div className="gap-1 flex flex-col mt-2">
           {impacts.map((impact, index) => (
-            <p
-              key={index}
-              className="flex gap-2 items-center opacity-50 text-sm"
-            >
-              <Circle className="size-2" />
+            <p key={index} className="flex gap-2 items-center text-sm">
+              <Sparkle className="size-2" />
               {impact}
             </p>
           ))}

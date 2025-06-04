@@ -2,10 +2,9 @@
 
 import ProjectCard from "@/components/project-card";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { catMessages, projects } from "@/lib/data";
-import { File } from "lucide-react";
+import { File, Moon, Sun } from "lucide-react";
 import Link from "next/link";
 import GitHubCalendar from "react-github-calendar";
 import { BiLogoPostgresql } from "react-icons/bi";
@@ -16,7 +15,11 @@ import { RiTailwindCssFill, RiVerifiedBadgeFill } from "react-icons/ri";
 import { SiNextdotjs, SiPrisma, SiTypescript } from "react-icons/si";
 import { toast } from "sonner";
 
+import { useTheme } from "next-themes";
+
 export default function Home() {
+  const { theme, setTheme } = useTheme();
+
   const handleMeow = () => {
     const randomWord =
       catMessages[Math.floor(Math.random() * catMessages.length)];
@@ -85,7 +88,7 @@ export default function Home() {
             target="_blank"
           >
             <FaGithub className="size-4" />
-            GitHub
+            {/* GitHub */}
           </Link>
 
           <Link
@@ -94,7 +97,7 @@ export default function Home() {
             target="_blank"
           >
             <FaLinkedin className="size-4" />
-            LinkedIn
+            {/* LinkedIn */}
           </Link>
 
           <p className="text-sm flex gap-1 opacity-50 items-center">
@@ -103,11 +106,24 @@ export default function Home() {
           </p>
 
           <div
-            className="flex gap-2  items-center cursor-pointer hover:opacity-100 opacity-50 ml-auto"
+            className="flex gap-2  items-center cursor-pointer hover:opacity-100 opacity-50 md:ml-auto"
             onClick={handleMeow}
           >
-            <p className="text-sm underline font-mono">say meow</p>
             <FaCat className="animate-bounce" />
+            <p className="text-sm underline font-mono">say meow</p>
+          </div>
+
+          <div
+            className="flex gap-2  items-center cursor-pointer hover:opacity-100 opacity-50"
+            onClick={() => setTheme(theme === "light" ? "dark" : "light")}
+          >
+            {theme === "light" ? (
+              <Sun className="size-4" />
+            ) : (
+              <Moon className="size-4" />
+            )}
+
+            <p className="text-sm underline font-mono">theme</p>
           </div>
         </div>
       </div>
@@ -135,15 +151,32 @@ export default function Home() {
         </div>
       </div>
 
-      <Link href="/dominador-dano-jr-resume.pdf" target="_blank">
-        <Button
-          className="flex items-center cursor-pointer"
-          variant="secondary"
+      <div className="flex flex-col gap-4">
+        <div className="flex justify-between">
+          <h2 className="opacity-50 text-sm">Education</h2>
+        </div>
+
+        <div className="flex flex-col text-pretty">
+          <p>BS in Information Technology</p>
+
+          <div className="flex justify-between">
+            <h2 className="opacity-50 text-sm font-mono">
+              {" "}
+              Davao Oriental State University
+            </h2>
+          </div>
+        </div>
+
+        <Link
+          href="/dominador-dano-jr-resume.pdf"
+          target="_blank"
+          className="flex gap-2  items-center cursor-pointer hover:opacity-100 opacity-50"
+          onClick={handleMeow}
         >
-          <File />
-          View CV
-        </Button>
-      </Link>
+          <File className="size-4" />
+          <p className="text-sm underline font-mono">view resume</p>
+        </Link>
+      </div>
 
       <GitHubCalendar username="danodoms" />
 
