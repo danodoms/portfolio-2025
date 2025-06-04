@@ -54,7 +54,7 @@ export default function ProjectCard({
 
   const gradient = gradients[Math.floor(Math.random() * gradients.length)];
   return (
-    <div className="flex flex-col rounded-none transition-all font-sans bg-muted/40">
+    <div className="flex flex-col rounded-none transition-all font-sans ">
       <Carousel
         plugins={[
           Autoplay({
@@ -102,7 +102,7 @@ export default function ProjectCard({
         <CarouselNext /> */}
       </Carousel>
 
-      <div className="flex flex-col p-4">
+      <div className="flex flex-col pt-4">
         <div className="flex justify-between">
           <Link
             className="font-bold tracking-tighter flex gap-1 items-center"

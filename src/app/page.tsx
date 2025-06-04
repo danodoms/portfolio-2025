@@ -4,14 +4,15 @@ import ProjectCard from "@/components/project-card";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Separator } from "@/components/ui/separator";
 import { catMessages, projects } from "@/lib/data";
-import { File, Moon, Sun } from "lucide-react";
+import { File, Globe, Maximize2, Minimize2, Moon, Sun } from "lucide-react";
 import Link from "next/link";
+import { useState } from "react";
 import GitHubCalendar from "react-github-calendar";
 import { BiLogoPostgresql } from "react-icons/bi";
 import { FaGit, FaGithub, FaLinkedin, FaLinux, FaReact } from "react-icons/fa";
 import { FaCat } from "react-icons/fa6";
 import { IoMdMail } from "react-icons/io";
-import { RiTailwindCssFill, RiVerifiedBadgeFill } from "react-icons/ri";
+import { RiTailwindCssFill } from "react-icons/ri";
 import { SiNextdotjs, SiPrisma, SiTypescript } from "react-icons/si";
 import { toast } from "sonner";
 
@@ -19,6 +20,7 @@ import { useTheme } from "next-themes";
 
 export default function Home() {
   const { theme, setTheme } = useTheme();
+  const [isExpanded, setIsExpanded] = useState(false);
 
   const handleMeow = () => {
     const randomWord =
@@ -33,7 +35,8 @@ export default function Home() {
           <div className="flex flex-col ">
             <h1 className=" font-bold text-2xl tracking-tighter flex items-center gap-2 ">
               danodoms
-              <RiVerifiedBadgeFill className="size-4" />
+              {/* <RiVerifiedBadgeFill className="size-4" /> */}
+              <Globe className="size-4" />
             </h1>
             <p className="opacity-50 font-mono">Web Developer</p>
           </div>
@@ -128,9 +131,28 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="flex flex-col gap-4">
-        <h2 className="opacity-50 text-sm">Projects</h2>
-        <div className="flex flex-col gap-8 md:grid-cols-2 md:grid">
+      <div className="flex flex-col gap-4 md:bg-muted/40 md:p-8 transition-all">
+        <div className="flex gap-2">
+          <div
+            className="md:flex gap-2  items-center cursor-pointer hover:opacity-100 opacity-50 hidden"
+            onClick={() => setIsExpanded(!isExpanded)}
+          >
+            {isExpanded ? (
+              <Minimize2 className="size-3" />
+            ) : (
+              <Maximize2 className="size-3" />
+            )}
+
+            {/* <p className="text-sm underline font-mono">
+              {isExpanded ? "collapse" : "expand"}
+            </p> */}
+          </div>
+          <h2 className="opacity-50 text-sm">Projects</h2>
+        </div>
+
+        <div
+          className={`flex flex-col gap-8 md:grid-cols-2 ${isExpanded ? "" : "md:grid"} transition-all`}
+        >
           {projects.map((project) => (
             <ProjectCard key={project.title} {...project} />
           ))}
