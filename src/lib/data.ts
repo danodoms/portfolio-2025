@@ -11,14 +11,14 @@ export const projects: ProjectCardProps[] = [
       "/images/dekada/dekada-4.webp",
     ],
     impacts: [
-      "Store 200+ undergraduate research",
+      "Stores 200+ undergraduate research",
       "Improved knowledge sharing",
     ],
     liveLink: "https://dekada.onrender.com/",
   },
   {
     title: "evento",
-    description: "QR Code based events attendance",
+    description: "QR Code based events attendance and sanctioning web-app",
     images: [
       "/images/evento/evento-1.webp",
       "/images/evento/evento-2.webp",

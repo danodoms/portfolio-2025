@@ -54,7 +54,7 @@ export default function ProjectCard({
 
   const gradient = gradients[Math.floor(Math.random() * gradients.length)];
   return (
-    <div className="flex flex-col rounded-none transition-all border font-sans bg-muted/50">
+    <div className="flex flex-col rounded-none transition-all font-sans bg-muted/40">
       <Carousel
         plugins={[
           Autoplay({
@@ -70,7 +70,7 @@ export default function ProjectCard({
         <CarouselContent>
           {images.map((image, index) => (
             <CarouselItem key={index}>
-              <div className="relative aspect-video w-full rounded-none border-b">
+              <div className="relative aspect-video w-full rounded-none">
                 <Link href={liveLink ?? ""} target="_blank">
                   <div className="w-full h-full absolute inset-0">
                     {imageLoading && (

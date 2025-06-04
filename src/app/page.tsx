@@ -156,7 +156,7 @@ export default function Home() {
           <h2 className="opacity-50 text-sm">Education</h2>
         </div>
 
-        <div className="flex flex-col text-pretty">
+        <div className="flex flex-col text-pretty font-mono">
           <p>BS in Information Technology</p>
 
           <div className="flex justify-between">
