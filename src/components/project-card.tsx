@@ -141,13 +141,13 @@ export default function ProjectCard({
         <div className="mt-2 gap-2 flex">
           {liveLink && (
             <Link href={liveLink}>
-              <Button>visit</Button>
+              <Button className="rounded-full">visit</Button>
             </Link>
           )}
 
           {repoLink && (
             <Link href={repoLink}>
-              <Button variant="outline">view source</Button>
+              <Button variant="ghost" className="bg-liquid-glass rounded-full">view source</Button>
             </Link>
           )}
         </div>

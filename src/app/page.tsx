@@ -4,7 +4,7 @@ import ProjectCard from "@/components/project-card";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Separator } from "@/components/ui/separator";
 import { catMessages, projects } from "@/lib/data";
-import { File, Globe, Moon, MoveRight, Sun } from "lucide-react";
+import { ChevronLeft, Ellipsis, File, Globe, Moon, MoveRight, Sun } from "lucide-react";
 import Link from "next/link";
 import GitHubCalendar from "react-github-calendar";
 import { BiLogoPostgresql } from "react-icons/bi";
@@ -17,6 +17,7 @@ import { toast } from "sonner";
 import { useTheme } from "next-themes";
 import { Button } from "@/components/ui/button";
 import { useEffect, useState } from "react";
+import Navigation from "@/components/navigation";
 
 export default function Home() {
   const { theme, setTheme } = useTheme();
@@ -43,33 +44,29 @@ export default function Home() {
   }, []);
 
   return (
-    <main className="min-h-screen w-full font-sans text-pretty">
-      <header className="sticky top-0 backdrop-blur-xl py-4 z-50 gap-4 mt-32">
-        <div className="max-w-5xl mx-auto flex justify-between gap-4 w-full items-center px-8">
-          {/* <h1 className="font-bold text-4xl tracking-tighter" >danodoms</h1> */}
+    <main className="min-h-screen w-full font-sans text-pretty px-8">
+      <Navigation title="danodoms" />
+
+      <header className="py-4 gap-4 mt-32">
+        <div className="max-w-5xl mx-auto flex gap-4 w-full items-center justify-start">
           <h1
-            className={`font-bold tracking-tighter transition-all duration-300 ${isScrolled ? "text-2xl" : "text-4xl"}`}
+            className="font-bold tracking-tighter text-4xl"
           >
             danodoms
           </h1>
-
-          {/* <Avatar className="size-6 hidden md:block">
-            <AvatarImage src="/images/profile.webp" alt="Profile Icon" />
-            <AvatarFallback>D</AvatarFallback>
-          </Avatar> */}
-
+          {/* 
           {isScrolled && (
             <Avatar className="size-6 transition-all">
               <AvatarImage src="/images/profile.webp" alt="Profile Icon" />
               <AvatarFallback>D</AvatarFallback>
             </Avatar>
-          )}
+          )} */}
 
         </div>
       </header>
 
 
-      <div className="px-8 flex flex-col gap-16 max-w-5xl mx-auto">
+      <div className="flex flex-col gap-16 max-w-5xl mx-auto">
         <section className="flex flex-col gap-4 font-mono" aria-label="About Section">
           <div className="flex flex-col gap-4 text-pretty">
             <p>
@@ -82,11 +79,6 @@ export default function Home() {
           </div>
 
           <div className="flex gap-4 flex-wrap items-center">
-            <Avatar className="size-4">
-              <AvatarImage src="/images/profile.webp" alt="Profile Icon" />
-              <AvatarFallback>D</AvatarFallback>
-            </Avatar>
-
             <Link
               href="https://github.com/danodoms"
               className="text-sm flex gap-1 opacity-50 items-center "
@@ -158,7 +150,15 @@ export default function Home() {
               <p className="opacity-50">
                 By digitizing attendance with QR code scanning, students check in in seconds, and organizers get real-time reports. This approach saved hours of manual work per event and provided accurate, reliable data for decision-making.
               </p>
-              <Button className="bg-linear-to-br from-indigo-500 to-purple-300 shadow-purple-300/30 shadow-lg text-foreground">view case study <MoveRight /></Button>
+              <Link href="/case-studies/evento">
+                {/* <Button className="bg-linear-to-br from-indigo-500 to-purple-300 shadow-purple-300/30 shadow-lg text-foreground">
+                  view case study <MoveRight />
+                </Button> */}
+
+                <Button variant="ghost" size="lg" className="bg-liquid-glass rounded-full">
+                  view case study <MoveRight />
+                </Button>
+              </Link>
             </div>
 
 
