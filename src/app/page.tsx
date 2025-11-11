@@ -3,10 +3,10 @@
 import Navigation from "@/components/navigation";
 import ProjectCard from "@/components/project-card";
 import { Button } from "@/components/ui/button";
-import { Separator } from "@/components/ui/separator";
 import { catMessages, projects } from "@/lib/data";
 import { File, Moon, MoveRight, Sun } from "lucide-react";
 import { useTheme } from "next-themes";
+import Image from "next/image";
 import Link from "next/link";
 import GitHubCalendar from "react-github-calendar";
 import { BiLogoPostgresql } from "react-icons/bi";
@@ -16,7 +16,6 @@ import { IoMdMail } from "react-icons/io";
 import { RiTailwindCssFill } from "react-icons/ri";
 import { SiNextdotjs, SiPrisma, SiTypescript } from "react-icons/si";
 import { toast } from "sonner";
-import Image from "next/image";
 
 export default function Home() {
   const { theme, setTheme } = useTheme();

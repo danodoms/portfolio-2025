@@ -1,7 +1,6 @@
 "use client";
 
 import Navigation from "@/components/navigation";
-import { Separator } from "@/components/ui/separator";
 import { eventoCaseStudy as caseStudy } from "@/lib/data";
 import Image from "next/image";
 
