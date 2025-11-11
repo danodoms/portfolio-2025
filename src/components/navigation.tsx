@@ -44,7 +44,7 @@ export default function Navigation({
                     : "opacity-100 translate-y-0 pointer-events-auto"
             )}
         >
-            <div className="max-w-5xl mx-auto flex justify-between gap-4 w-full items-center">
+            <div className="max-w-4xl mx-auto flex justify-between gap-4 w-full items-center">
                 <Link href="/" className="bg-liquid-glass p-3 rounded-full">
                     <ChevronLeft />
                 </Link>

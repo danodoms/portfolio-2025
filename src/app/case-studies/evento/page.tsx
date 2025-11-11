@@ -131,6 +131,15 @@ export default function CaseStudyPage() {
                     )}
                 </section>
             )}
+
+
+            {/* TAKEAWAY */}
+            {caseStudy.takeaway && (
+                <section className="my-8">
+                    <h2 className="">{caseStudy.takeaway}</h2>
+                </section>
+            )}
+
         </main>
     );
 }

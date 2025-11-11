@@ -30,8 +30,8 @@ export default function Home() {
     <main className="min-h-screen w-full font-sans text-pretty px-4">
       <Navigation title="danodoms" isDynamic={true} />
 
-      <header className="py-4 gap-4 mt-32">
-        <div className="max-w-5xl mx-auto flex gap-4 w-full items-center justify-start">
+      <header className="py-4 gap-4 -mt-16">
+        <div className="max-w-4xl mx-auto flex gap-4 w-full items-center justify-start">
           <h1
             className="font-bold tracking-tighter text-4xl"
           >
@@ -49,7 +49,7 @@ export default function Home() {
       </header>
 
 
-      <div className="flex flex-col gap-16 max-w-5xl mx-auto">
+      <div className="flex flex-col gap-16 max-w-4xl mx-auto">
         <section className="flex flex-col gap-4 font-mono" aria-label="About Section">
           <div className="flex flex-col gap-4 text-pretty">
             <p>
