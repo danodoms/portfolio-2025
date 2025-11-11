@@ -116,12 +116,24 @@ export const catMessages = [
 
 export type CaseStudy = {
   title: string;
+
   about: string;
+  aboutImage?: string;
+
   problem: string;
+  problemImage?: string;
+
   challenge: string[];
+  challengeImage?: string;
+
   solution: string;
+  solutionImage?: string;
+
   results: string[];
+  resultsImage?: string;
+
   conclusion: string[];
+  conclusionImage?: string;
 };
 
 // export const eventoCaseStudy: CaseStudy = {
@@ -160,8 +172,11 @@ export const eventoCaseStudy: CaseStudy = {
     "How Evento Streamlined Student Attendance and Reduced Check-In Time by 80%",
   about:
     "The Davao Oriental State University - Banaybanay Campus Student Council is a student organization of 20 members responsible for planning and executing events. The council serves over 1,000 students, tracking event participation to encourage engagement and maintain accurate records of attendance.",
+  aboutImage: "/images/case-study/evento-about-1.jpg",
   problem:
     "Manual attendance tracking was extremely time-consuming, with check-in and check-out taking up to an hour per student during events. Attendance records were prone to falsification, as peers could mark absent students as present. Calculating sanctions relied on physical attendance sheets, and cross-referencing with past records was chaotic and impractical.",
+  problemImage: "/images/case-study/evento-problem-1.jpg",
+
   challenge: [
     "The council had little to no budget for purchasing specialized attendance infrastructure.",
     "RFID and biometric scanners were considered but would require significant funding and time to register over 1,000 students.",
@@ -171,6 +186,8 @@ export const eventoCaseStudy: CaseStudy = {
   ],
   solution:
     "After evaluating possible options, the team identified two key factors that made a QR code-based solution ideal. Almost all students carry a smartphone, allowing each student to generate a QR code, either printable or displayed on their device. During events, the student council can scan each attendee’s QR code for check-in and check-out. The system automatically merges scanned data with student records, requiring internet only on the council's scanning devices rather than on all attendees' devices. This approach allowed for a fast, reliable, and offline-capable solution using a Progressive Web App (PWA) called Evento.",
+  solutionImage: "/images/case-study/evento-solution-1.png",
+
   results: [
     "Check-in time was reduced from several minutes per student to just a few seconds.",
     "Human error in attendance tracking was eliminated, providing accurate and reliable records for all events.",
@@ -178,6 +195,8 @@ export const eventoCaseStudy: CaseStudy = {
     "The centralized system allowed the student council to manage multiple events efficiently, improving overall workflow.",
     "Students benefited from a quick, contactless, and seamless check-in experience.",
   ],
+  resultsImage: "/images/case-study/evento-result-1.jpg",
+
   conclusion: [
     "Evento transformed student attendance management from a slow, error-prone process into an efficient and reliable workflow.",
     "The system saved hours of administrative work per event and empowered the student council to make data-driven decisions.",

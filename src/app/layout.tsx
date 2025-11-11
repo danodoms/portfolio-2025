@@ -38,6 +38,11 @@ export default function RootLayout({
           {children}
           <Toaster position="top-center" />
         </ThemeProvider>
+        {/* <Separator /> */}
+
+        <p className="text-xs tracking-tight opacity-50 text-center mb-16 font-mono mt-16">
+          © 2025. danodoms. All rights reserved.
+        </p>
       </body>
     </html>
   );

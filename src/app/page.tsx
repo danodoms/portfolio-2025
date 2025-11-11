@@ -1,10 +1,12 @@
 "use client";
 
+import Navigation from "@/components/navigation";
 import ProjectCard from "@/components/project-card";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { catMessages, projects } from "@/lib/data";
-import { ChevronLeft, Ellipsis, File, Globe, Moon, MoveRight, Sun } from "lucide-react";
+import { File, Moon, MoveRight, Sun } from "lucide-react";
+import { useTheme } from "next-themes";
 import Link from "next/link";
 import GitHubCalendar from "react-github-calendar";
 import { BiLogoPostgresql } from "react-icons/bi";
@@ -14,15 +16,10 @@ import { IoMdMail } from "react-icons/io";
 import { RiTailwindCssFill } from "react-icons/ri";
 import { SiNextdotjs, SiPrisma, SiTypescript } from "react-icons/si";
 import { toast } from "sonner";
-import { useTheme } from "next-themes";
-import { Button } from "@/components/ui/button";
-import { useEffect, useState } from "react";
-import Navigation from "@/components/navigation";
+import Image from "next/image";
 
 export default function Home() {
   const { theme, setTheme } = useTheme();
-
-  const [isScrolled, setIsScrolled] = useState(false)
 
   const handleMeow = () => {
     const randomWord =
@@ -30,22 +27,9 @@ export default function Home() {
     toast.success(randomWord);
   };
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const scrollTop = window.scrollY;
-      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-      const scrollPercent = (scrollTop / docHeight) * 100;
-
-      setIsScrolled(scrollPercent > 10);
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
   return (
-    <main className="min-h-screen w-full font-sans text-pretty px-8">
-      <Navigation title="danodoms" />
+    <main className="min-h-screen w-full font-sans text-pretty px-4">
+      <Navigation title="danodoms" isDynamic={true} />
 
       <header className="py-4 gap-4 mt-32">
         <div className="max-w-5xl mx-auto flex gap-4 w-full items-center justify-start">
@@ -135,10 +119,17 @@ export default function Home() {
           </div>
 
           {/* CONTENT */}
-          <div className="flex gap-4 md:gap-16 md:flex-row-reverse flex-wrap flex-col">
+          <div className="flex gap-4 md:gap-16 md:flex-row-reverse flex-col gap-8 items-center">
 
             {/* IMAGE */}
-            <div className="rounded-xl bg-primary flex-1 size-auto aspect-video min-w-20 min-h-20" />
+            <div className="mt-4 relative w-full h-64 md:h-80 md:flex-1">
+              <Image
+                src="/images/case-study/evento-about-1.jpg"
+                alt="About"
+                fill
+                className="rounded-lg object-cover"
+              />
+            </div>
 
             {/* TEXT */}
             <div className="flex-1 space-y-4">
@@ -226,11 +217,7 @@ export default function Home() {
 
         <GitHubCalendar username="danodoms" />
 
-        <Separator />
 
-        <p className="text-sm tracking-tight opacity-50 text-center mb-16 font-mono">
-          © 2025. danodoms. All rights reserved.
-        </p>
       </div>
 
 
