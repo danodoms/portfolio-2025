@@ -58,9 +58,8 @@ export default function ProjectCard({
   const gradient = gradients[Math.floor(Math.random() * gradients.length)];
   return (
     <div
-      className={`flex flex-col md:flex-row ${
-        isReversed ? "md:flex-row-reverse" : ""
-      } rounded-none transition-all font-sans gap-8 md:items-center`}
+      className={`flex flex-col md:flex-row ${isReversed ? "md:flex-row-reverse" : ""
+        } rounded-none transition-all font-sans md:gap-16 gap-8 md:items-center`}
     >
       <Carousel
         plugins={[
@@ -98,7 +97,7 @@ export default function ProjectCard({
                       loading="lazy"
                       onLoad={() => setImageLoading(false)}
                       // className={`object-cover rounded-none hover:opacity-75 transition-all ${imageLoading ? "bg-muted" : ""}`}
-                      className={`object-cover rounded-lg hover:opacity-75 transition-all`}
+                      className={`object-fill rounded-lg hover:opacity-75 transition-all`}
                     />
                   </div>
                 </Link>
@@ -119,7 +118,7 @@ export default function ProjectCard({
           >
             <h2>{title}</h2>
 
-            {liveLink && <ArrowUpRight className="size-4" />}
+            {liveLink && <ArrowUpRight className="size-4 hover:scale-150 transition-all" />}
           </Link>
         </div>
 
@@ -134,7 +133,7 @@ export default function ProjectCard({
               className="flex gap-2 items-center text-sm opacity-50"
             >
               {impact}
-              <Sparkle className="size-2.5" />
+              <Sparkle className="size-2" />
             </p>
           ))}
         </div>

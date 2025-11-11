@@ -2,6 +2,25 @@ import { ProjectCardProps } from "@/components/project-card";
 
 export const projects: ProjectCardProps[] = [
   {
+    title: "evento",
+    description: "QR Code based events attendance and sanctioning web-app",
+    images: [
+      "/images/evento/evento-1.webp",
+      "/images/evento/evento-2.webp",
+      "/images/evento/evento-3.webp",
+      "/images/evento/evento-4.webp",
+      "/images/evento/evento-5.webp",
+      "/images/evento/evento-6.webp",
+    ],
+    impacts: [
+      "Serves 1,000+ users",
+      "Accelerated check-ins 10s -> 2s",
+      "Digitized sanctions 5min -> 30s",
+    ],
+    liveLink: "https://eventoportal.netlify.app",
+    repoLink: "https://github.com/danodoms/evento",
+  },
+  {
     title: "Dekada",
     description: "Digital research repository",
     images: [
@@ -15,24 +34,6 @@ export const projects: ProjectCardProps[] = [
       "Improved knowledge sharing",
     ],
     liveLink: "https://dekada.onrender.com/",
-  },
-  {
-    title: "evento",
-    description: "QR Code based events attendance and sanctioning web-app",
-    images: [
-      "/images/evento/evento-1.webp",
-      "/images/evento/evento-2.webp",
-      "/images/evento/evento-3.webp",
-      "/images/evento/evento-4.webp",
-      "/images/evento/evento-5.webp",
-      "/images/evento/evento-6.webp",
-    ],
-    impacts: [
-      "Successfully serves 1,000+ users",
-      "Attendance logging sped up by 5x",
-    ],
-    liveLink: "https://eventoportal.netlify.app",
-    repoLink: "https://github.com/danodoms/evento",
   },
   {
     title: "XR Vision",
