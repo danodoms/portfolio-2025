@@ -27,13 +27,13 @@ export default function Home() {
   };
 
   return (
-    <main className="min-h-screen w-full font-sans text-pretty px-4">
+    <main className="min-h-screen w-full font-sans text-pretty px-8">
       <Navigation title="danodoms" isDynamic={true} />
 
-      <header className="py-4 gap-4 -mt-16">
+      <header className="py-4 gap-4">
         <div className="max-w-4xl mx-auto flex gap-4 w-full items-center justify-start">
           <h1
-            className="font-bold tracking-tighter text-4xl"
+            className="font-bold tracking-tighter text-2xl"
           >
             danodoms
           </h1>

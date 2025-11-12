@@ -6,7 +6,7 @@ import Image from "next/image";
 
 export default function CaseStudyPage() {
     return (
-        <main className="min-h-screen w-full text-pretty px-4 max-w-3xl mx-auto font-sans">
+        <main className="min-h-screen w-full text-pretty px-8 max-w-3xl mx-auto font-sans">
             <Navigation title="evento" />
 
             {/* HEADER */}
