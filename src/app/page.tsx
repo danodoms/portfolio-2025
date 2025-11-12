@@ -53,11 +53,13 @@ export default function Home() {
         <section className="flex flex-col gap-4 font-mono" aria-label="About Section">
           <div className="flex flex-col gap-4 text-pretty">
             <p>
-              <b className="bg-linear-to-br from-indigo-500 to-purple-300 text-transparent bg-clip-text">Hey, Dom here.</b> I’m a <>full-stack web developer</> specializing in React and Next.js. I build web applications that simplify workflows, improve efficiency, and help users get things done faster.
+              <b className="bg-linear-to-br from-indigo-500 to-purple-300 text-transparent bg-clip-text">Hey, Dom here.</b> If you’re even reading this, we’re basically friends already XD.
+              Oh—wait, I forgot to introduce myself...
             </p>
 
             <p>
-              My background in graphic design and music production shapes the way I approach development, combining usability, clarity, and practical solutions.
+              I’m a <u>full-stack web developer specializing in React and Next.js.</u> I build web applications that simplify workflows, improve efficiency, and help users get things done faster.
+              My extensive background in graphic design and music production gave me an eye for design and attention to detail.
             </p>
           </div>
 
@@ -92,7 +94,7 @@ export default function Home() {
               onClick={handleMeow}
             >
               <FaCat className="animate-bounce" />
-              <p className="text-sm underline font-mono">say meow</p>
+              <p className="text-sm underline font-mono">meow</p>
             </div>
 
             <div
