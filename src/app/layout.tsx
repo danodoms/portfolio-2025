@@ -2,6 +2,7 @@ import { ThemeProvider } from "@/components/theme-provider";
 import { Toaster } from "@/components/ui/sonner";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next"
 import "./globals.css";
 
 const geistSans = Geist({
@@ -38,6 +39,7 @@ export default function RootLayout({
           {children}
           <Toaster position="top-center" />
         </ThemeProvider>
+        <Analytics />
         {/* <Separator /> */}
 
         <p className="text-xs tracking-tight opacity-50 text-center mb-16 font-mono mt-16">
