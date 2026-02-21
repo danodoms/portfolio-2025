@@ -206,7 +206,7 @@ export default function Home() {
           </div>
 
           <Link
-            href="https://docs.google.com/document/d/1va_Q1utJ2FfEqzNlo83oPeY4iZJ5cNClXQSVSW1E4LA/edit?usp=sharing"
+            href="/resume"
             target="_blank"
             className="flex gap-2  items-center cursor-pointer hover:opacity-100 opacity-50"
             onClick={handleMeow}
