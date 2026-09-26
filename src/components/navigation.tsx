@@ -1,7 +1,7 @@
 "use client";
 
-import Link from "next/link";
-import { ChevronLeft, Ellipsis } from "lucide-react";
+import { ChevronLeft } from "lucide-react";
+import { usePathname, useRouter } from "next/navigation";
 import { useState, useEffect } from "react";
 import clsx from "clsx";
 
@@ -17,6 +17,17 @@ export default function Navigation({
     isDynamic = false,
 }: NavigationProps) {
     const [isScrolled, setIsScrolled] = useState(false);
+    const router = useRouter();
+    const pathname = usePathname();
+    const isHome = pathname === "/";
+
+    const handleBack = () => {
+        if (window.history.length > 1) {
+            router.back();
+        } else {
+            router.push("/");
+        }
+    };
 
     useEffect(() => {
         if (!isDynamic) return; // skip scroll listener if not dynamic
@@ -44,18 +55,25 @@ export default function Navigation({
                     : "opacity-100 translate-y-0 pointer-events-auto"
             )}
         >
-            <div className="max-w-4xl mx-auto flex justify-between gap-4 w-full items-center">
-                <Link href="/" className="bg-liquid-glass p-3 rounded-full">
-                    <ChevronLeft />
-                </Link>
+            <div
+                aria-hidden="true"
+                className="nav-blur pointer-events-none absolute top-0 -bottom-16 left-1/2 w-screen -translate-x-1/2 -z-10"
+            />
+            <div className="relative max-w-4xl mx-auto flex justify-center items-center w-full">
+                {!isHome && (
+                    <button
+                        type="button"
+                        onClick={handleBack}
+                        aria-label="Back"
+                        className="absolute left-0 cursor-pointer"
+                    >
+                        <ChevronLeft />
+                    </button>
+                )}
 
-                <h1 className="font-bold tracking-tighter text-2xl bg-liquid-glass px-4 py-2 rounded-full">
+                <h1 className="font-bold tracking-tighter text-2xl">
                     {title}
                 </h1>
-
-                <div className="bg-liquid-glass p-3 rounded-full">
-                    <Ellipsis />
-                </div>
             </div>
         </header>
     );
