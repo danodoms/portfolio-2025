@@ -85,7 +85,7 @@ export default function Home() {
             </p>
 
             <p>
-            I’m a full-stack developer who’s shipped web and mobile for remote teams, usually working in React and TypeScript. Design and music production taught me to notice the small friction most people just live with.
+            I’m a full-stack developer who’s shipped web and mobile projects for remote teams, usually working in React and TypeScript. Design and music production taught me to notice the small friction most people just live with.
             </p>
           </div>
 
