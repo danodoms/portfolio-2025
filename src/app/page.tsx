@@ -1,14 +1,22 @@
 "use client";
 
 import Navigation from "@/components/navigation";
+import AsciiHologram from "@/components/ascii-hologram";
 import ProjectCard from "@/components/project-card";
 import { Button } from "@/components/ui/button";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+} from "@/components/ui/carousel";
 import { catMessages, projects } from "@/lib/data";
-import { File, Moon, MoveRight, Sun } from "lucide-react";
+import AutoScroll from "embla-carousel-auto-scroll";
+import { File, Moon, MoveRight, Sun, ArrowUpRight } from "lucide-react";
+import { motion, MotionConfig, type MotionProps } from "motion/react";
 import { useTheme } from "next-themes";
+import dynamic from "next/dynamic";
 import Image from "next/image";
 import Link from "next/link";
-import GitHubCalendar from "react-github-calendar";
 import { BiLogoPostgresql } from "react-icons/bi";
 import { FaGit, FaGithub, FaLinkedin, FaLinux, FaReact } from "react-icons/fa";
 import { FaCat } from "react-icons/fa6";
@@ -17,8 +25,30 @@ import { RiTailwindCssFill } from "react-icons/ri";
 import { SiNextdotjs, SiPrisma, SiTypescript } from "react-icons/si";
 import { toast } from "sonner";
 
+const GitHubCalendar = dynamic(() => import("react-github-calendar"), {
+  ssr: false,
+});
+
+const technologies = [
+  FaReact,
+  SiNextdotjs,
+  RiTailwindCssFill,
+  FaGit,
+  SiTypescript,
+  BiLogoPostgresql,
+  SiPrisma,
+  FaLinux,
+];
+
+const reveal: MotionProps = {
+  initial: { y: 8, filter: "blur(4px)" },
+  whileInView: { y: 0, filter: "blur(0px)" },
+  viewport: { once: true, amount: 0.2 },
+  transition: { duration: 0.3, ease: [0.16, 1, 0.3, 1] },
+};
+
 export default function Home() {
-  const { theme, setTheme } = useTheme();
+  const { theme, setTheme, resolvedTheme } = useTheme();
 
   const handleMeow = () => {
     const randomWord =
@@ -27,94 +57,107 @@ export default function Home() {
   };
 
   return (
+    <MotionConfig reducedMotion="user">
     <main className="min-h-screen w-full font-sans text-pretty px-8">
       <Navigation title="danodoms" isDynamic={true} />
 
-      <header className="py-4 gap-4">
-        <div className="max-w-4xl mx-auto flex gap-4 w-full items-center justify-start">
-          <h1
-            className="font-bold tracking-tighter text-2xl"
-          >
-            danodoms
-          </h1>
-          {/* 
-          {isScrolled && (
-            <Avatar className="size-6 transition-all">
-              <AvatarImage src="/images/profile.webp" alt="Profile Icon" />
-              <AvatarFallback>D</AvatarFallback>
-            </Avatar>
-          )} */}
-
-        </div>
-      </header>
-
-
-      <div className="flex flex-col gap-16 max-w-4xl mx-auto">
-        <section className="flex flex-col gap-4 font-mono" aria-label="About Section">
-          <div className="flex flex-col gap-4 text-pretty">
+      <div className="flex flex-col gap-32 max-w-4xl mx-auto">
+        <section className="flex flex-col md:grid md:grid-cols-2 gap-8 pt-16" aria-label="About Section">
+          <div className="relative size-28 shrink-0 overflow-hidden rounded-full md:order-2 md:size-56 md:justify-self-center md:self-center">
+            <Image
+              src="/images/profile.webp"
+              alt="Dominador Dano Jr."
+              fill
+              priority
+              className="object-cover grayscale"
+            />
+            <div className="pointer-events-none absolute inset-0 grid place-items-center">
+              <AsciiHologram className="text-[3px] leading-[3px] text-white mix-blend-plus-lighter opacity-80 md:text-[6px] md:leading-[6px]" />
+            </div>
+          </div>
+          <div className="flex flex-col gap-6 w-full md:order-1">
+            <h1 className="font-bold tracking-tighter text-2xl">
+              danodoms
+            </h1>
+            <div className="flex flex-col gap-6 text-justify hyphens-auto [font-family:var(--font-satoshi)]">
             <p>
-              <b className="bg-linear-to-br from-indigo-500 to-purple-300 text-transparent bg-clip-text">Hey, Dom here.</b> If you’re even reading this, we’re basically friends already XD.
-              Oh—wait, I forgot to introduce myself...
+              <b>Hey, Dom here.</b> If you’re here, then we’re friends now :D
             </p>
 
             <p>
-              I’m a <u>full-stack web developer specializing in React and Next.js.</u> I build web applications that simplify workflows, improve efficiency, and help users get things done faster.
-              My extensive background in graphic design and music production gave me an eye for design and attention to detail.
+            I’m a full-stack developer who’s shipped web and mobile for remote teams, usually working in React and TypeScript. Design and music production taught me to notice the small friction most people just live with.
             </p>
           </div>
 
           <div className="flex gap-4 flex-wrap items-center">
             <Link
               href="https://github.com/danodoms"
-              className="text-sm flex gap-1 opacity-50 items-center "
+              className="text-sm flex gap-1 items-center"
               target="_blank"
               aria-label="View Github Profile"
             >
-              <FaGithub className="size-4" />
+              <FaGithub className="size-5" />
               {/* GitHub */}
             </Link>
 
             <Link
               href="https://linkedin.com/in/danodoms"
-              className="text-sm flex gap-1 opacity-50 items-center"
+              className="text-sm flex gap-1 items-center"
               target="_blank"
               aria-label="View LinkedIn Profile"
             >
-              <FaLinkedin className="size-4" />
+              <FaLinkedin className="size-5" />
               {/* LinkedIn */}
             </Link>
 
-            <Link href="mailto:danodoms@gmail.com" className="text-sm flex gap-1 opacity-50 items-center">
-              <IoMdMail className="size-4" />
+            <Link href="mailto:danodoms@gmail.com" className="text-sm flex gap-1 items-center">
+              <IoMdMail className="size-5" />
               {/* danodoms@gmail.com */}
             </Link>
 
-            <div
-              className="flex gap-2  items-center cursor-pointer hover:opacity-100 opacity-50 md:ml-auto"
+            <button
+              type="button"
+              aria-label="Make the cat talk"
+              className="flex gap-2 items-center cursor-pointer"
               onClick={handleMeow}
             >
-              <FaCat className="animate-bounce" />
-              <p className="text-sm underline font-mono">meow</p>
-            </div>
+              <FaCat className="size-5 animate-bounce" />
+            </button>
 
-            <div
-              className="flex gap-2  items-center cursor-pointer hover:opacity-100 opacity-50"
+            <button
+              type="button"
+              aria-label="Toggle color theme"
+              className="flex gap-2 items-center cursor-pointer"
               onClick={() => setTheme(theme === "light" ? "dark" : "light")}
             >
               {theme === "light" ? (
-                <Sun className="size-4" />
+                <Sun className="size-5" />
               ) : (
-                <Moon className="size-4" />
+                <Moon className="size-5" />
               )}
 
-              <p className="text-sm underline font-mono">theme</p>
-            </div>
+              <span className="text-sm underline">theme</span>
+            </button>
+          </div>
+
+          <Link href="mailto:danodoms@gmail.com" className="w-fit">
+            <Button
+              variant="default"
+              size="lg"
+              className="cta-shine group rounded-full"
+            >
+              Let’s connect <ArrowUpRight className="size-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+            </Button>
+          </Link>
           </div>
         </section>
 
 
         {/* CASE STUDIES SECTION */}
-        <section className="flex flex-col gap-4 transition-all">
+        <motion.section
+          {...reveal}
+          className="flex flex-col gap-4 transition-all"
+        >
           <div className="flex gap-2">
             <h2 className="opacity-50 text-sm">Case Studies</h2>
           </div>
@@ -125,16 +168,17 @@ export default function Home() {
             {/* IMAGE */}
             <div className="mt-4 relative w-full h-64 md:h-80 md:flex-1">
               <Image
-                src="/images/case-study/evento-about-1.jpg"
+                src="/images/case-study/evento-about-1.webp"
                 alt="About"
                 fill
+                sizes="(max-width: 768px) 100vw, 50vw"
                 className="rounded-lg object-cover"
               />
             </div>
 
             {/* TEXT */}
             <div className="flex-1 space-y-4">
-              <h3 className="font-bold md:text-4xl text-3xl">
+              <h3 className="font-bold md:text-4xl text-3xl tracking-tight">
                 How an organization reduced event check-in time by 80%
               </h3>
 
@@ -155,15 +199,18 @@ export default function Home() {
 
 
           </div>
-        </section>
+        </motion.section>
 
-        <section className="flex flex-col gap-4 transition-all">
+        <motion.section
+          {...reveal}
+          className="flex flex-col gap-4 transition-all"
+        >
           <div className="flex gap-2">
             <h2 className="opacity-50 text-sm">Projects</h2>
           </div>
 
           <div
-            className={`flex flex-col md:gap-16 gap-8 transition-all`}
+            className={`flex flex-col gap-32 transition-all`}
           >
             {projects.map((project, index) => (
               <ProjectCard
@@ -173,32 +220,45 @@ export default function Home() {
               />
             ))}
           </div>
-        </section>
+        </motion.section>
 
-        <section className="flex flex-col gap-4">
+        <motion.section {...reveal} className="flex flex-col gap-4">
           <h2 className="opacity-50 mb-2 text-sm">Technologies</h2>
-          <div className="flex flex-wrap gap-8 text-4xl">
-            <FaReact />
-            <SiNextdotjs />
-            <RiTailwindCssFill />
-            <FaGit />
-            <SiTypescript />
-            <BiLogoPostgresql />
-            <SiPrisma />
-            <FaLinux />
-          </div>
-        </section>
+          <Carousel
+            opts={{ loop: true, align: "start", dragFree: true }}
+            plugins={[
+              AutoScroll({
+                speed: 1,
+                startDelay: 0,
+                stopOnInteraction: false,
+                stopOnMouseEnter: true,
+              }),
+            ]}
+            className="w-full [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]"
+          >
+            <CarouselContent className="-ml-8">
+              {[...technologies, ...technologies].map((Icon, index) => (
+                <CarouselItem
+                  key={index}
+                  className="basis-auto pl-8 text-4xl"
+                >
+                  <Icon />
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+          </Carousel>
+        </motion.section>
 
-        <div className="flex flex-col gap-4">
+        <motion.div {...reveal} className="flex flex-col gap-4">
           <div className="flex justify-between">
             <h2 className="opacity-50 text-sm">Education</h2>
           </div>
 
-          <div className="flex flex-col text-pretty font-mono">
+          <div className="flex flex-col text-pretty">
             <p>BS in Information Technology</p>
 
             <div className="flex justify-between">
-              <h2 className="opacity-50 text-sm font-mono">
+              <h2 className="opacity-50 text-sm">
                 {" "}
                 Davao Oriental State University
               </h2>
@@ -208,20 +268,30 @@ export default function Home() {
           <Link
             href="/resume"
             target="_blank"
-            className="flex gap-2  items-center cursor-pointer hover:opacity-100 opacity-50"
-            onClick={handleMeow}
+            className="flex gap-2 items-center cursor-pointer"
+            // onClick={handleMeow}
           >
             <File className="size-4" />
-            <p className="text-sm underline font-mono">view resume</p>
+            <p className="text-sm underline">view resume</p>
           </Link>
-        </div>
+        </motion.div>
 
-        <GitHubCalendar username="danodoms" />
+        <motion.div {...reveal}>
+          <GitHubCalendar
+            username="danodoms"
+            colorScheme={resolvedTheme === "light" ? "light" : "dark"}
+            theme={{
+              light: ["#ebedf0", "#cfcfcf", "#9e9e9e", "#5c5c5c", "#1f1f1f"],
+              dark: ["#2a2a2a", "#4d4d4d", "#7a7a7a", "#ababab", "#ededed"],
+            }}
+          />
+        </motion.div>
 
 
       </div>
 
 
     </main>
+    </MotionConfig>
   );
 }
