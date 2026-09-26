@@ -23,6 +23,7 @@ export default function CaseStudyPage() {
                                 src={caseStudy.aboutImage}
                                 alt="About"
                                 fill
+                                sizes="(max-width: 768px) 100vw, 768px"
                                 className="rounded-lg object-cover"
                             />
                         </div>
@@ -41,6 +42,7 @@ export default function CaseStudyPage() {
                                 src={caseStudy.problemImage}
                                 alt="Problem"
                                 fill
+                                sizes="(max-width: 768px) 100vw, 768px"
                                 className="rounded-lg object-cover"
                             />
                         </div>
@@ -63,6 +65,7 @@ export default function CaseStudyPage() {
                                 src={caseStudy.challengeImage}
                                 alt="Challenge"
                                 fill
+                                sizes="(max-width: 768px) 100vw, 768px"
                                 className="rounded-lg object-cover"
                             />
                         </div>
@@ -81,6 +84,7 @@ export default function CaseStudyPage() {
                                 src={caseStudy.solutionImage}
                                 alt="Solution"
                                 fill
+                                sizes="(max-width: 768px) 100vw, 768px"
                                 className="rounded-lg object-cover"
                             />
                         </div>
@@ -103,6 +107,7 @@ export default function CaseStudyPage() {
                                 src={caseStudy.resultsImage}
                                 alt="Results"
                                 fill
+                                sizes="(max-width: 768px) 100vw, 768px"
                                 className="rounded-lg object-cover"
                             />
                         </div>
@@ -125,6 +130,7 @@ export default function CaseStudyPage() {
                                 src={caseStudy.conclusionImage}
                                 alt="Conclusion"
                                 fill
+                                sizes="(max-width: 768px) 100vw, 768px"
                                 className="rounded-lg object-cover"
                             />
                         </div>
