@@ -4,6 +4,8 @@ import {
   Carousel,
   CarouselContent,
   CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
 } from "@/components/ui/carousel";
 import Autoplay from "embla-carousel-autoplay";
 import Fade from "embla-carousel-fade";
@@ -62,22 +64,23 @@ export default function ProjectCard({
         } rounded-none transition-all font-sans md:gap-16 gap-8 md:items-center`}
     >
       <Carousel
+        opts={{ loop: true, align: "start" }}
         plugins={[
           Autoplay({
             delay: 3000,
             stopOnFocusIn: false,
-            stopOnInteraction: false,
+            stopOnInteraction: true,
             stopOnLastSnap: false,
             stopOnMouseEnter: false,
           }),
           Fade(),
         ]}
-        className={`flex-3/5`}
+        className={`flex-3/5 group`}
       >
         <CarouselContent>
           {images.map((image, index) => (
             <CarouselItem key={index}>
-              <div className="relative aspect-video w-full rounded-none">
+              <div className="relative aspect-video w-full overflow-hidden rounded-lg">
                 <Link href={liveLink ?? ""} target="_blank">
                   <div className="w-full h-full absolute inset-0">
                     {imageLoading && (
@@ -95,18 +98,26 @@ export default function ProjectCard({
                       alt="Project Image"
                       fill
                       loading="lazy"
+                      sizes="(max-width: 768px) 100vw, 60vw"
                       onLoad={() => setImageLoading(false)}
-                      // className={`object-cover rounded-none hover:opacity-75 transition-all ${imageLoading ? "bg-muted" : ""}`}
-                      className={`object-fill rounded-lg hover:opacity-75 transition-all`}
+                      className={`object-cover rounded-lg hover:opacity-75 transition-all`}
                     />
                   </div>
                 </Link>
+                <div className="pointer-events-none absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-background/80 via-background/30 to-transparent opacity-0 transition-opacity group-hover:opacity-100" />
+                <div className="pointer-events-none absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-background/80 via-background/30 to-transparent opacity-0 transition-opacity group-hover:opacity-100" />
               </div>
             </CarouselItem>
           ))}
         </CarouselContent>
-        {/* <CarouselPrevious />
-        <CarouselNext /> */}
+        <CarouselPrevious
+          variant="ghost"
+          className="left-3 size-10 rounded-full border-0 bg-transparent text-foreground shadow-none hover:bg-transparent opacity-0 transition-opacity group-hover:opacity-100 focus-visible:opacity-100"
+        />
+        <CarouselNext
+          variant="ghost"
+          className="right-3 size-10 rounded-full border-0 bg-transparent text-foreground shadow-none hover:bg-transparent opacity-0 transition-opacity group-hover:opacity-100 focus-visible:opacity-100"
+        />
       </Carousel>
 
       <div className={`flex flex-col flex-2/5 md:pt-0 gap-2`}>
