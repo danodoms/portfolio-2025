@@ -117,6 +117,8 @@ export const catMessages = [
 export type CaseStudy = {
   title: string;
 
+  stats?: { value: string; label: string }[];
+
   about: string;
   aboutImage?: string;
 
@@ -172,6 +174,11 @@ export type CaseStudy = {
 export const eventoCaseStudy: CaseStudy = {
   title:
     "How Evento Streamlined Student Attendance and Reduced Check-In Time by 80%",
+  stats: [
+    { value: "80%", label: "faster check-ins" },
+    { value: "1,000+", label: "students served" },
+    { value: "Seconds", label: "per check-in" },
+  ],
   about:
     "The Davao Oriental State University - Banaybanay Campus Student Council is a student organization responsible for planning, overseeing, and executing events. The council serves over 1,000 students, tracking event participation to encourage engagement and maintain accurate records of attendance.",
   aboutImage: "/images/case-study/evento-about-1.webp",

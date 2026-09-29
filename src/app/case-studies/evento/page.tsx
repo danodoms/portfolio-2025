@@ -1,151 +1,128 @@
 "use client";
 
 import Navigation from "@/components/navigation";
+import Footer from "@/components/footer";
 import { eventoCaseStudy as caseStudy } from "@/lib/data";
 import Image from "next/image";
+import type { ReactNode } from "react";
+
+function Section({
+    id,
+    label,
+    image,
+    children,
+}: {
+    id: string;
+    label: string;
+    image?: string;
+    children: ReactNode;
+}) {
+    return (
+        <section id={id} className="mt-16 scroll-mt-24">
+            <h2 className="opacity-50 text-sm">{label}</h2>
+            <div className="mt-4 max-w-2xl space-y-4">{children}</div>
+            {image && (
+                <div className="relative mt-8 h-64 w-full md:h-96">
+                    <Image
+                        src={image}
+                        alt={label}
+                        fill
+                        sizes="(max-width: 768px) 100vw, 768px"
+                        className="rounded-xl object-cover"
+                    />
+                </div>
+            )}
+        </section>
+    );
+}
 
 export default function CaseStudyPage() {
     return (
-        <main className="min-h-screen w-full text-pretty px-8 max-w-3xl mx-auto font-sans">
+        <>
+        <main className="min-h-screen w-full text-pretty px-6 md:px-8 max-w-3xl mx-auto font-sans leading-relaxed">
             <Navigation title="evento" />
 
             {/* HEADER */}
-            <h1 className="md:text-4xl font-bold text-2xl mt-4">{caseStudy.title}</h1>
+            <header className="mt-4">
+                <h1 className="md:text-4xl font-bold text-2xl text-balance">
+                    {caseStudy.title}
+                </h1>
 
-            {/* ABOUT */}
+                {caseStudy.stats && (
+                    <dl className="mt-6 flex flex-wrap gap-x-8 gap-y-3 text-sm">
+                        {caseStudy.stats.map((stat) => (
+                            <div
+                                key={stat.label}
+                                className="flex items-baseline gap-2"
+                            >
+                                <dt className="font-medium">{stat.value}</dt>
+                                <dd className="opacity-50">{stat.label}</dd>
+                            </div>
+                        ))}
+                    </dl>
+                )}
+            </header>
+
             {caseStudy.about && (
-                <section className="my-8">
-                    <h2 className="text-sm opacity-50">About</h2>
-                    <p className="mt-2">{caseStudy.about}</p>
-                    {caseStudy.aboutImage && (
-                        <div className="mt-4 relative w-full h-64 md:h-80">
-                            <Image
-                                src={caseStudy.aboutImage}
-                                alt="About"
-                                fill
-                                sizes="(max-width: 768px) 100vw, 768px"
-                                className="rounded-lg object-cover"
-                            />
-                        </div>
-                    )}
-                </section>
+                <Section id="about" label="About" image={caseStudy.aboutImage}>
+                    <p>{caseStudy.about}</p>
+                </Section>
             )}
 
-            {/* PROBLEM */}
             {caseStudy.problem && (
-                <section className="my-8">
-                    <h2 className="text-sm opacity-50">Problem</h2>
-                    <p className="mt-2">{caseStudy.problem}</p>
-                    {caseStudy.problemImage && (
-                        <div className="mt-4 relative w-full h-64 md:h-80">
-                            <Image
-                                src={caseStudy.problemImage}
-                                alt="Problem"
-                                fill
-                                sizes="(max-width: 768px) 100vw, 768px"
-                                className="rounded-lg object-cover"
-                            />
-                        </div>
-                    )}
-                </section>
+                <Section id="problem" label="Problem" image={caseStudy.problemImage}>
+                    <p>{caseStudy.problem}</p>
+                </Section>
             )}
 
-            {/* CHALLENGE */}
             {caseStudy.challenge?.length > 0 && (
-                <section className="my-8">
-                    <h2 className="text-sm opacity-50">Challenge</h2>
-                    <div className="mt-2 space-y-4">
-                        {caseStudy.challenge.map((item, idx) => (
-                            <p key={idx}>{item}</p>
-                        ))}
-                    </div>
-                    {caseStudy.challengeImage && (
-                        <div className="mt-4 relative w-full h-64 md:h-80">
-                            <Image
-                                src={caseStudy.challengeImage}
-                                alt="Challenge"
-                                fill
-                                sizes="(max-width: 768px) 100vw, 768px"
-                                className="rounded-lg object-cover"
-                            />
-                        </div>
-                    )}
-                </section>
+                <Section
+                    id="challenge"
+                    label="Challenge"
+                    image={caseStudy.challengeImage}
+                >
+                    {caseStudy.challenge.map((item, idx) => (
+                        <p key={idx}>{item}</p>
+                    ))}
+                </Section>
             )}
 
-            {/* SOLUTION */}
             {caseStudy.solution && (
-                <section className="my-8">
-                    <h2 className="text-sm opacity-50">Solution</h2>
-                    <p className="mt-2">{caseStudy.solution}</p>
-                    {caseStudy.solutionImage && (
-                        <div className="mt-4 relative w-full h-64 md:h-80">
-                            <Image
-                                src={caseStudy.solutionImage}
-                                alt="Solution"
-                                fill
-                                sizes="(max-width: 768px) 100vw, 768px"
-                                className="rounded-lg object-cover"
-                            />
-                        </div>
-                    )}
-                </section>
+                <Section id="solution" label="Solution" image={caseStudy.solutionImage}>
+                    <p>{caseStudy.solution}</p>
+                </Section>
             )}
 
-            {/* RESULTS */}
             {caseStudy.results?.length > 0 && (
-                <section className="my-8">
-                    <h2 className="text-sm opacity-50">Results</h2>
-                    <div className="mt-2 space-y-4">
-                        {caseStudy.results.map((item, idx) => (
-                            <p key={idx}>{item}</p>
-                        ))}
-                    </div>
-                    {caseStudy.resultsImage && (
-                        <div className="mt-4 relative w-full h-64 md:h-80">
-                            <Image
-                                src={caseStudy.resultsImage}
-                                alt="Results"
-                                fill
-                                sizes="(max-width: 768px) 100vw, 768px"
-                                className="rounded-lg object-cover"
-                            />
-                        </div>
-                    )}
-                </section>
+                <Section id="results" label="Results" image={caseStudy.resultsImage}>
+                    {caseStudy.results.map((item, idx) => (
+                        <p key={idx}>{item}</p>
+                    ))}
+                </Section>
             )}
 
-            {/* CONCLUSION */}
             {caseStudy.conclusion?.length > 0 && (
-                <section className="my-8">
-                    <h2 className="text-sm opacity-50">Conclusion</h2>
-                    <div className="mt-2 space-y-4">
-                        {caseStudy.conclusion.map((item, idx) => (
-                            <p key={idx}>{item}</p>
-                        ))}
-                    </div>
-                    {caseStudy.conclusionImage && (
-                        <div className="mt-4 relative w-full h-64 md:h-80">
-                            <Image
-                                src={caseStudy.conclusionImage}
-                                alt="Conclusion"
-                                fill
-                                sizes="(max-width: 768px) 100vw, 768px"
-                                className="rounded-lg object-cover"
-                            />
-                        </div>
-                    )}
-                </section>
+                <Section
+                    id="conclusion"
+                    label="Conclusion"
+                    image={caseStudy.conclusionImage}
+                >
+                    {caseStudy.conclusion.map((item, idx) => (
+                        <p key={idx}>{item}</p>
+                    ))}
+                </Section>
             )}
-
 
             {/* TAKEAWAY */}
             {caseStudy.takeaway && (
-                <section className="my-8">
-                    <h2 className="">{caseStudy.takeaway}</h2>
+                <section className="mt-20 mb-8">
+                    <p className="text-2xl font-bold tracking-tight text-balance md:text-3xl">
+                        {caseStudy.takeaway}
+                    </p>
                 </section>
             )}
-
         </main>
+        <Footer />
+        </>
     );
 }
