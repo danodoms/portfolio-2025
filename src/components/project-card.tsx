@@ -9,7 +9,7 @@ import {
 } from "@/components/ui/carousel";
 import Autoplay from "embla-carousel-autoplay";
 import Fade from "embla-carousel-fade";
-import { ArrowUpRight, Loader2, Sparkle } from "lucide-react";
+import { ArrowUpRight, Loader2 } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
@@ -137,14 +137,13 @@ export default function ProjectCard({
           <p className="text-sm tracking-tight text-pretty">{description}</p>
         )}
 
-        <div className=" flex flex-col">
-          {impacts.map((impact, index) => (
+        <div className="flex flex-col gap-2 text-pretty">
+          {impacts.map((impact) => (
             <p
-              key={index}
-              className="flex gap-2 items-center text-sm opacity-50"
+              key={impact}
+              className="flex items-center gap-2 text-sm opacity-50 before:size-1 before:shrink-0 before:rounded-full before:bg-current before:content-['']"
             >
               {impact}
-              <Sparkle className="size-2" />
             </p>
           ))}
         </div>
