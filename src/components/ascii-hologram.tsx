@@ -49,7 +49,7 @@ export default function AsciiHologram({ className }: { className?: string }) {
       ref={ref}
       aria-label="ASCII silhouette of Dominador Dano Jr."
       className={cn(
-        "w-fit overflow-hidden whitespace-pre text-[5px] leading-[5px] text-foreground [text-shadow:0_0_6px_currentColor] sm:text-[6px] sm:leading-[6px]",
+        "w-fit whitespace-pre text-[5px] leading-[5px] text-foreground [text-shadow:0_0_8px_currentColor,0_0_28px_currentColor] sm:text-[6px] sm:leading-[6px]",
         className,
       )}
     >

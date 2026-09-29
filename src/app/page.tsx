@@ -63,16 +63,9 @@ export default function Home() {
 
       <div className="flex flex-col gap-32 max-w-4xl mx-auto">
         <section className="flex flex-col md:grid md:grid-cols-2 gap-8 pt-16" aria-label="About Section">
-          <div className="relative size-28 shrink-0 overflow-hidden rounded-full md:order-2 md:size-56 md:justify-self-center md:self-center">
-            <Image
-              src="/images/profile.webp"
-              alt="Dominador Dano Jr."
-              fill
-              priority
-              className="object-cover grayscale"
-            />
+          <div className="relative size-28 shrink-0 overflow-hidden rounded-full bg-[color-mix(in_oklab,var(--foreground)_15%,var(--background))] md:order-2 md:size-56 md:justify-self-center md:self-center">
             <div className="pointer-events-none absolute inset-0 grid place-items-center">
-              <AsciiHologram className="text-[3px] leading-[3px] text-white mix-blend-plus-lighter opacity-80 md:text-[6px] md:leading-[6px]" />
+              <AsciiHologram className="text-[3px] leading-[3px] text-foreground opacity-80 md:text-[6px] md:leading-[6px]" />
             </div>
           </div>
           <div className="flex flex-col gap-6 w-full md:order-1">
@@ -81,11 +74,11 @@ export default function Home() {
             </h1>
             <div className="flex flex-col gap-6 text-left text-pretty [font-family:var(--font-satoshi)]">
             <p>
-              <b>Hey, Dom here.</b> If you’re here, then we’re friends now :D
+              <b>Hey, Dom here.</b> If you’re reading this, then we’re friends now :D
             </p>
 
             <p>
-            I’m a full-stack developer who’s shipped web and mobile projects for remote teams, usually working in React and TypeScript. I came to software from a design and music production background.
+            I’m a full-stack developer who’s shipped web and mobile projects for remote teams, usually working in React and TypeScript. Before development, I worked in design and music production.
             </p>
           </div>
 
