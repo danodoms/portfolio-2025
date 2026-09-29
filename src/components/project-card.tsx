@@ -134,7 +134,7 @@ export default function ProjectCard({
         </div>
 
         {description && (
-          <p className="text-sm tracking-tight text-balance">{description}</p>
+          <p className="text-sm tracking-tight text-pretty">{description}</p>
         )}
 
         <div className=" flex flex-col">

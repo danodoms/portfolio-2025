@@ -79,13 +79,13 @@ export default function Home() {
             <h1 className="font-bold tracking-tighter text-2xl">
               danodoms
             </h1>
-            <div className="flex flex-col gap-6 text-justify hyphens-auto [font-family:var(--font-satoshi)]">
+            <div className="flex flex-col gap-6 text-left text-pretty [font-family:var(--font-satoshi)]">
             <p>
               <b>Hey, Dom here.</b> If you’re here, then we’re friends now :D
             </p>
 
             <p>
-            I’m a full-stack developer who’s shipped web and mobile projects for remote teams, usually working in React and TypeScript. Design and music production taught me to notice the small friction most people just live with.
+            I’m a full-stack developer who’s shipped web and mobile projects for remote teams, usually working in React and TypeScript. I came to software from a design and music production background.
             </p>
           </div>
 
