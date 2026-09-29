@@ -23,8 +23,8 @@ export default function Footer() {
       />
       <div className="relative mx-auto grid max-w-4xl gap-24 md:grid-cols-2 md:items-center">
         {/* CTA */}
-        <div className="flex flex-col items-start gap-6">
-          <div className="max-w-md">
+        <div className="flex flex-col items-center gap-6 md:items-start">
+          <div className="max-w-md text-center md:text-left">
             <h2 className="text-3xl font-bold tracking-tighter md:text-4xl">
               Let’s build something.
             </h2>
@@ -42,7 +42,7 @@ export default function Footer() {
         </div>
 
         {/* links */}
-        <div className="grid grid-cols-2 gap-6 text-sm">
+        <div className="mx-auto grid w-fit grid-cols-2 gap-6 text-sm md:mx-0 md:w-full">
           <div className="flex flex-col items-start gap-3">
             {navLinks.map(({ href, label }) => (
               <Link
