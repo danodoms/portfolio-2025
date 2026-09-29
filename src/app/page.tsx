@@ -178,7 +178,7 @@ export default function Home() {
 
               {/* <p className="opacity-50">…while eliminating long queues and reducing errors by 95%</p> */}
               <p className="opacity-50">
-                By digitizing attendance with QR code scanning, students check in in seconds, and organizers get real-time reports. This approach saved hours of manual work per event and provided accurate, reliable data for decision-making.
+                By digitizing attendance with QR code scanning, students check in within seconds, and organizers get real-time reports. This approach saved hours of manual work per event and provided accurate, reliable data for decision-making.
               </p>
               <Link href="/case-studies/evento">
                 {/* <Button className="bg-linear-to-br from-indigo-500 to-purple-300 shadow-purple-300/30 shadow-lg text-foreground">

@@ -183,7 +183,7 @@ export const eventoCaseStudy: CaseStudy = {
     "The Davao Oriental State University - Banaybanay Campus Student Council is a student organization responsible for planning, overseeing, and executing events. The council serves over 1,000 students, tracking event participation to encourage engagement and maintain accurate records of attendance.",
   aboutImage: "/images/case-study/evento-about-1.webp",
   problem:
-    "Manual attendance tracking was extremely time-consuming, with check-in and check-out taking up to an hour per student during events. Attendance records were prone to falsification, as peers could mark absent students as present. Calculating sanctions relied on physical attendance sheets, and cross-referencing with past records was chaotic and impractical.",
+    "Manual attendance tracking was extremely time-consuming, with check-in and check-out often taking an hour or more during events. Attendance records were prone to falsification, as peers could mark absent students as present. Calculating sanctions relied on physical attendance sheets, and cross-referencing with past records was chaotic and impractical.",
   problemImage: "/images/case-study/evento-problem-1.webp",
 
   challenge: [
@@ -196,7 +196,7 @@ export const eventoCaseStudy: CaseStudy = {
   solutionImage: "/images/case-study/evento-solution-1.webp",
 
   results: [
-    "The implementation of Evento significantly improved the efficiency of event attendance management. Check-in times were reduced from several minutes per student to just a few seconds, eliminating human error and ensuring reliable attendance records for all events. Real-time reporting and dashboards provided organizers with instant insights into attendance and participation metrics.",
+    "Evento significantly improved event attendance management. Per-attendee check-in dropped from about ten seconds to two, cutting the full process from over an hour to just a few minutes and removing manual transcription errors. Real-time reporting and dashboards gave organizers instant insight into attendance and participation.",
 
     "The centralized system allowed the student council to manage multiple events efficiently, improving overall workflow. Students benefited from a quick, contactless, and seamless check-in process, enhancing user satisfaction while saving hours of administrative work per event.",
   ],
