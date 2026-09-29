@@ -1,5 +1,4 @@
 import { ThemeProvider } from "@/components/theme-provider";
-import Footer from "@/components/footer";
 import { Toaster } from "@/components/ui/sonner";
 import type { Metadata } from "next";
 import { Geist } from "next/font/google";
@@ -51,8 +50,6 @@ export default function RootLayout({
         </ThemeProvider>
         <Analytics />
         {/* <Separator /> */}
-
-        <Footer />
       </body>
     </html>
   );

@@ -1,6 +1,7 @@
 "use client";
 
 import Navigation from "@/components/navigation";
+import Footer from "@/components/footer";
 import AsciiHologram from "@/components/ascii-hologram";
 import ProjectCard from "@/components/project-card";
 import { Button } from "@/components/ui/button";
@@ -171,7 +172,7 @@ export default function Home() {
 
             {/* TEXT */}
             <div className="flex-1 space-y-4">
-              <h3 className="font-bold md:text-4xl text-3xl tracking-tight">
+              <h3 className="font-bold md:text-4xl text-3xl tracking-tight text-balance">
                 How an organization reduced event check-in time by 80%
               </h3>
 
@@ -285,6 +286,7 @@ export default function Home() {
 
 
     </main>
+    <Footer />
     </MotionConfig>
   );
 }
